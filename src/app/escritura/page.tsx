@@ -1,3 +1,5 @@
+import { Divider } from '@/components/Divider'
+
 const styles: Record<'main', React.CSSProperties> = {
   main: {
     marginTop: '20vh',
@@ -8,13 +10,15 @@ const styles: Record<'main', React.CSSProperties> = {
   },
 }
 
-export default function Inicio() {
+export default function Escritura() {
   return (
     <main style={styles.main}>
-      <h1>¡Hola muy buenas!</h1>
-      <h2>Ha llegado uhté a la página web de Javier Carrillo Milla</h2>
-      <p>Si este mensage le parece raro... ¡vamos bien!</p>
-      <p>Curiosea un poco</p>
+      <h1>Escritura</h1>
+      <Divider />
+
+      <p>
+        Algo de poesía en <a href="https://www.instagram.com/seniorgrillo/">instagram</a>
+      </p>
     </main>
   )
 }
