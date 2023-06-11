@@ -3,7 +3,7 @@ import Link from 'next/link';
 export type TopNavigationBarLinkProps = {
   href: string;
   children: React.ReactNode;
-}
+};
 
 const topNavigationBarLinkStyle: React.CSSProperties = {
   color: 'white',
@@ -11,11 +11,16 @@ const topNavigationBarLinkStyle: React.CSSProperties = {
   textDecoration: 'none',
 };
 
-export const TopNavigationBarLink: React.FC<TopNavigationBarLinkProps> = ({href, children}) => {
-  return <Link href={href} style={topNavigationBarLinkStyle}>
-    {children}
-  </Link>;
-}
+export const TopNavigationBarLink: React.FC<TopNavigationBarLinkProps> = ({
+  href,
+  children,
+}) => {
+  return (
+    <Link href={href} style={topNavigationBarLinkStyle}>
+      {children}
+    </Link>
+  );
+};
 
 export const TOP_NAVIGATION_BAR_HEIGHT = 53;
 
@@ -39,5 +44,5 @@ export const TopNavigationBar: React.FC = () => {
       <TopNavigationBarLink href="/musica">{`⚡︎ música`}</TopNavigationBarLink>
       <TopNavigationBarLink href="/escritura">{`⏚ escritura`}</TopNavigationBarLink>
     </nav>
-  )
-}
+  );
+};
