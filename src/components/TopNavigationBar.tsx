@@ -43,6 +43,7 @@ export const TopNavigationBar: React.FC = () => {
       <TopNavigationBarLink href="/">{`☄ inicio`}</TopNavigationBarLink>
       <TopNavigationBarLink href="/musica">{`⚡︎ música`}</TopNavigationBarLink>
       <TopNavigationBarLink href="/escritura">{`⏚ escritura`}</TopNavigationBarLink>
+      <TopNavigationBarLink href="/programacion">{`☕︎ programación`}</TopNavigationBarLink>
     </nav>
   );
 };
