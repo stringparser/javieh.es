@@ -1,6 +1,6 @@
 import nextMDX from '@next/mdx';
-import rehypePrettyCode from 'rehype-pretty-code';
 import remarkGfm from 'remark-gfm';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -13,7 +13,7 @@ const nextConfig = {
 
 /** @type {import('rehype-pretty-code').Options} */
 const options = {
-  grid: true,
+  grid: false,
 };
 
 const withMDX = nextMDX({
@@ -25,4 +25,5 @@ const withMDX = nextMDX({
   },
 });
 
+/** @type {import('next').NextConfig} */
 export default withMDX(nextConfig);

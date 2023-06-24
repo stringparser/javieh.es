@@ -8,8 +8,7 @@ export type TopNavigationBarLinkProps = {
 };
 
 const topNavigationBarLinkStyle: React.CSSProperties = {
-  width: '8rem',
-  margin: '0.5rem',
+  padding: '2rem 1rem',
   fontSize: '17px',
   textDecoration: 'none',
 };
@@ -33,18 +32,18 @@ const topNavigationBarStyle: React.CSSProperties = {
   top: 0,
   left: 0,
   right: 0,
-  margin: '0 auto',
   padding: '0.5rem',
   height: `${TOP_NAVIGATION_BAR_HEIGHT}px`,
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
   backgroundImage: `url(${backgroundImage.src})`,
   backgroundPosition: 'center',
 };
 
 const topNavBarContentStyle: React.CSSProperties = {
+  width: '80vw',
   display: 'flex',
+  margin: '0 20vw',
   alignItems: 'center',
   justifyContent: 'space-between'
 }
@@ -56,7 +55,7 @@ export const TopNavigationBar: React.FC = () => {
         <TopNavigationBarLink href="/">{`☄ inicio`}</TopNavigationBarLink>
         <TopNavigationBarLink href="/musica">{`⚡︎ música`}</TopNavigationBarLink>
         <TopNavigationBarLink href="/escritura">{`⏚ escritura`}</TopNavigationBarLink>
-        <TopNavigationBarLink href="/programacion">{`☕︎ programación`}</TopNavigationBarLink>
+        <TopNavigationBarLink href="/blog">{`☕︎ blog`}</TopNavigationBarLink>
       </div>
     </nav>
   );
