@@ -31,7 +31,7 @@ export default function Musica() {
 
       <p>
         Otras cosas aleatorias en{' '}
-        <a href="ttps://soundcloud.com/stringparser">soundcloud</a>
+        <a href="https://soundcloud.com/stringparser">soundcloud</a>
       </p>
     </>
   );
