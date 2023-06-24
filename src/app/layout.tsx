@@ -1,8 +1,6 @@
-import { useRouter } from 'next/router';
 import './globals.css';
 
 import { TOP_NAVIGATION_BAR_HEIGHT, TopNavigationBar } from '@/components/TopNavigationBar';
-import BackLink from '@/components/BackLink';
 
 export const metadata = {
   title: 'javieh',
@@ -10,8 +8,7 @@ export const metadata = {
 }
 
 const mainStyles: React.CSSProperties = {
-  margin: `0 auto`,
-  marginTop: `${TOP_NAVIGATION_BAR_HEIGHT}px`,
+  margin: '0 auto',
   padding: '1rem 2rem',
   display: 'flex',
   flexDirection: 'column',
@@ -22,7 +19,6 @@ export type RootLayoutProps = {
 };
 
 export default function RootLayout(props: RootLayoutProps) {
-  console.log('props', props);
   const {children} = props;
 
 
@@ -30,8 +26,11 @@ export default function RootLayout(props: RootLayoutProps) {
     <html lang="en">
       <body>
       <TopNavigationBar />
+      <div style={{height: `${TOP_NAVIGATION_BAR_HEIGHT}px`}} />
       <main style={mainStyles} className="prose prose-invert">
-        {children}
+        <div className="mt-8">
+          {children}
+        </div>
       </main>
       </body>
     </html>
