@@ -1,5 +1,8 @@
 ---
-title: Empezando con TypeScript
+title: "Empezando con TypeScript"
+publishDate: "24 Jun 2023"
+description: "Empezamos aquí a aprender a programar. Y qué mejor que con TypeScript"
+tags: ["TypeScript", "blog", "primero"]
 ---
 
 # Empezando con TypeScript

@@ -1,2 +1,4 @@
-.eslintrc*
-next.config.js
+dist
+node_modules
+.github
+.changeset

@@ -1,18 +1,20 @@
-import { getPostContent, getPosts } from '@/_blog/util';
+import PostLayout from '@/components/blog/PostLayout';
+import { getPostContent, fetchAllPostsByDate } from '@/content/lib';
 
 export async function generateStaticParams() {
-  return getPosts();
+  return fetchAllPostsByDate();
 }
 
 type BlogPostProps = {
-  params: {slug: string};
-}
+  params: { slug: string };
+};
 
 export default async function BlogPost(props: BlogPostProps) {
-  const {html} = await getPostContent(props.params.slug);
+  const post = await getPostContent(props.params.slug);
+
   return (
-    <>
-      <div dangerouslySetInnerHTML={{__html: html}} />
-    </>
+    <PostLayout post={post}>
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    </PostLayout>
   );
 }

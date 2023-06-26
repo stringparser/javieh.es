@@ -1,38 +1,28 @@
 import './globals.css';
 
-import { TOP_NAVIGATION_BAR_HEIGHT, TopNavigationBar } from '@/components/TopNavigationBar';
+import { siteConfig } from '@/site.config';
 
-export const metadata = {
-  title: 'javieh',
-  description: 'Javier Carrillo Milla',
-}
-
-const mainStyles: React.CSSProperties = {
-  margin: '0 auto',
-  padding: '1rem 2rem',
-  display: 'flex',
-  flexDirection: 'column',
-};
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import BaseHead from '@/components/BaseHead';
+import SkipLink from '@/components/link/SkipLink';
 
 export type RootLayoutProps = {
   children: React.ReactNode;
 };
 
 export default function RootLayout(props: RootLayoutProps) {
-  const {children} = props;
-
+  const { children } = props;
 
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
+      <BaseHead {...siteConfig} />
       <body>
-      <TopNavigationBar />
-      <div style={{height: `${TOP_NAVIGATION_BAR_HEIGHT}px`}} />
-      <main style={mainStyles} className="prose prose-invert">
-        <div className="mt-8">
-          {children}
-        </div>
-      </main>
+        <SkipLink />
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
-  )
+  );
 }

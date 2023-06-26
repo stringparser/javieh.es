@@ -1,4 +1,7 @@
-import { Divider } from '@/components/Divider';
+export const meta = {
+  title: 'Música',
+  description: 'Disco réplica de "ritual reunion"',
+};
 
 const styles: Record<'iframe', React.CSSProperties> = {
   iframe: {
@@ -8,31 +11,34 @@ const styles: Record<'iframe', React.CSSProperties> = {
   },
 };
 
-export default function Musica() {
+export default function Música() {
   return (
-    <>
-      <h1>Música</h1>
-
+    <div className="space-y-6">
+      <h1 className="title">Música</h1>
       <p>
-        Album{' '}
-        <a href="https://ritualreunion.bandcamp.com/album/replica">
+        Álbum{' '}
+        <a
+          className="text-link"
+          href="https://ritualreunion.bandcamp.com/album/replica"
+        >
           <i>replica</i>
         </a>{' '}
         de mi grupo <i>ritual reunion</i>
       </p>
-
       <iframe
+        title="ritual reunion (bandcamp)"
         style={styles.iframe}
         src="https://bandcamp.com/EmbeddedPlayer/album=4109334869/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
         seamless
       ></iframe>
-
-      <Divider />
-
+      <p className="mb-4"></p>
+      --
       <p>
-        Otras cosas aleatorias en{' '}
-        <a href="https://soundcloud.com/stringparser">soundcloud</a>
+        También puedes encontrar otras cosas aleatorias en{' '}
+        <a className="text-link" href="https://soundcloud.com/stringparser">
+          soundcloud
+        </a>
       </p>
-    </>
+    </div>
   );
 }
