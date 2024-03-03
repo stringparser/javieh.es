@@ -1,0 +1,22 @@
+---
+import { siteConfig } from "@/site-config";
+import SocialList from "@/components/SocialList.astro";
+
+
+const year = new Date().getFullYear();
+---
+
+<footer
+	class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 pb-4 pt-20 text-center align-top font-semibold text-gray-600 dark:text-gray-400 sm:flex-row sm:justify-between sm:text-xs"
+>
+	<div class="grid grid-gap-2 grid-rows-2">
+		<p class="mb-1">
+			Basado en <a style="color: lightgreen" href="https://astro.build/themes/details/astro-cactus/">Astro Cactus</a></span>
+		</p>
+		<p>
+			&copy; {siteConfig.author}
+			{year}
+		</p>
+	</div>
+	<SocialList />
+</footer>

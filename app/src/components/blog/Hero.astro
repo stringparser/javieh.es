@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import { Image } from "astro:assets";
+
+import FormattedDate from "../FormattedDate.astro";
+
+interface Props {
+	content: CollectionEntry<"post">;
+}
+
+const {
+	content: { data, render },
+} = Astro.props;
+
+const { remarkPluginFrontmatter } = await render();
+
+const dateTimeOptions: Intl.DateTimeFormatOptions = {
+	month: "long",
+};
+---
+
+{
+	data.coverImage && (
+		<div class="aspect-h-9 aspect-w-16 mb-6">
+			<Image
+				alt={data.coverImage.alt}
+				class="object-cover"
+				fetchpriority="high"
+				loading="eager"
+				src={data.coverImage.src}
+			/>
+		</div>
+	)
+}
+{data.draft ? <span class="text-base text-red-500">(Draft)</span> : null}
+<h1 class="title mb-1 sm:mb-1">
+	{data.title}
+</h1>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+	<p class="font-semibold">
+		<FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} />
+	</p>
+	{
+		data.updatedDate && (
+			<span class="rounded-lg bg-quote/10 p-1 text-quote">
+				Last Updated:
+				<FormattedDate class="ms-1" date={data.updatedDate} dateTimeOptions={dateTimeOptions} />
+			</span>
+		)
+	}
+	{
+		data.tags?.length > 0 && (
+			<>
+				{data.tags.map((tag) => (
+					<>
+						<a
+							aria-label={`View more blogs with the tag ${tag}`}
+							class="cactus-link text-xs inline-block before:content-['#']"
+							data-pagefind-filter="tag"
+							href={`/tags/${tag}/`}
+						>{tag}</a>
+					</>
+				))}
+			</>
+		)
+	}
+</div>

@@ -1,0 +1,47 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+export const prerender = true;
+
+const styles = {
+	iframe: {
+		border: 0,
+		width: "350px",
+		height: "470px",
+	},
+};
+
+const meta = {
+	title: "Música",
+	description: 'Disco réplica de "ritual reunion"',
+};
+---
+
+<PageLayout meta={meta}>
+	<div class="space-y-6">
+		<h1 class="title">Música</h1>
+
+		<p>
+			Álbum{" "}
+			<a class="text-link" href="https://ritualreunion.bandcamp.com/album/replica">
+				<i>replica</i>
+			</a>{" "}
+			de mi grupo <i>ritual reunion</i>
+		</p>
+
+		<iframe
+			title="ritual reunion (bandcamp)"
+			style={styles.iframe}
+			src="https://bandcamp.com/EmbeddedPlayer/album=4109334869/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+			seamless></iframe>
+
+		<p class="mb-4"></p>
+
+		--
+
+		<p>
+			También puedes encontrar otras cosas aleatorias en{" "}
+			<a class="text-link" href="https://soundcloud.com/stringparser">soundcloud</a>
+		</p>
+	</div>
+</PageLayout>

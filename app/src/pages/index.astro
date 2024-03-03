@@ -1,0 +1,36 @@
+---
+export const prerender = true;
+
+import { getCollection } from "astro:content";
+import PageLayout from "@/layouts/Base.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import SocialList from "@/components/SocialList.astro";
+import { sortMDByDate } from "@/utils";
+
+
+const MAX_POSTS = 10;
+const allPosts = await getCollection("post");
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+---
+
+<PageLayout meta={{ title: "Inicio" }}>
+	<section>
+		<h1 class="title mb-6">¡Hola buenas!</h1>
+		<p class="mb-4">Javier al aparato. Mi ocupación profesional es de programador. <p class="mb-4">
+			Puedes ver <a class="text-link" href="https://stringparser.github.io/cv">mi cv aquí</a>.</p>
+		
+		<SocialList />
+	</section>
+	<section aria-label="Blog post list" class="mt-16">
+		<h2 class="title mb-4 text-xl">Blog</h2>
+		<ul class="space-y-4 sm:space-y-2">
+			{
+				allPostsByDate.map((p) => (
+					<li class="flex flex-col gap-x-2 sm:flex-row">
+						<PostPreview post={p} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</PageLayout>
