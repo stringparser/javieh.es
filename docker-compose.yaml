@@ -1,0 +1,12 @@
+services:
+  base:
+    build:
+      context: ./app
+    env_file:
+      - ./app/.env
+    working_dir: /home/app
+    volumes:
+      - ./app:/home/app
+    ports:
+      - "3000:3000"
+    command: "npm run dev"
